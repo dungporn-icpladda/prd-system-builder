@@ -49,18 +49,22 @@ export function AppShell({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="flex min-h-screen bg-background">
+    <div className="flex min-h-screen bg-background text-foreground">
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-40 flex w-64 flex-col bg-sidebar text-sidebar-foreground transition-transform lg:static lg:translate-x-0",
+          "fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground shadow-[18px_0_40px_rgb(217_70_239_/_0.08)] transition-transform lg:static lg:translate-x-0",
           open ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div className="flex items-center gap-2 border-b border-sidebar-border px-5 py-4">
-          <Factory className="size-6 text-sidebar-primary" />
+        <div className="flex items-center gap-3 border-b border-sidebar-border px-5 py-4">
+          <div className="rounded-2xl bg-sidebar-primary p-2 text-sidebar-primary-foreground shadow-[0_8px_28px_rgb(217_70_239_/_0.22)]">
+            <Factory className="size-5" />
+          </div>
           <div className="leading-tight">
-            <p className="text-sm font-semibold">ระบบรูปแบบการบรรจุ</p>
-            <p className="text-xs text-sidebar-foreground/60">Packaging Format System</p>
+            <p className="text-sm font-extrabold tracking-wide">ระบบรูปแบบการบรรจุ</p>
+            <p className="text-xs font-semibold text-sidebar-foreground/70">
+              ShopVibe Design System
+            </p>
           </div>
         </div>
         <nav className="flex-1 space-y-1 overflow-y-auto p-3">
@@ -72,10 +76,10 @@ export function AppShell({ children }: { children: ReactNode }) {
                 to={item.to}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "flex items-center gap-3 rounded-md px-3 py-2 text-sm transition-colors",
+                  "flex min-h-11 items-center gap-3 rounded-full px-3 py-2 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5",
                   active
-                    ? "bg-sidebar-accent font-medium text-sidebar-accent-foreground"
-                    : "text-sidebar-foreground/80 hover:bg-sidebar-accent/60",
+                    ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-[0_8px_28px_rgb(217_70_239_/_0.22)]"
+                    : "text-sidebar-foreground/85 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_8px_24px_rgb(217_70_239_/_0.1)]",
                 )}
               >
                 <item.icon className="size-4" />
@@ -93,7 +97,12 @@ export function AppShell({ children }: { children: ReactNode }) {
               </Badge>
             ))}
           </div>
-          <Button variant="ghost" size="sm" className="mt-3 w-full justify-start gap-2" onClick={signOut}>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="mt-3 w-full justify-start gap-2"
+            onClick={signOut}
+          >
             <LogOut className="size-4" /> ออกจากระบบ
           </Button>
         </div>
@@ -108,7 +117,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       )}
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="flex items-center gap-3 border-b bg-surface px-4 py-3 lg:hidden">
+        <header className="flex items-center gap-3 border-b border-border bg-surface px-4 py-3 lg:hidden">
           <Button variant="ghost" size="icon" onClick={() => setOpen(true)} aria-label="เปิดเมนู">
             <Menu className="size-5" />
           </Button>
@@ -120,6 +129,22 @@ export function AppShell({ children }: { children: ReactNode }) {
   );
 }
 
+export function ShopVibeLogo({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={cn("flex flex-col items-center", compact ? "gap-1" : "gap-3")}>
+      <div className={cn("shopvibe-logo", compact && "scale-75")}>
+        <div className="shopvibe-logo-mark">
+          <span className="shopvibe-logo-text">SHOP</span>
+          <span className="shopvibe-logo-seven">V</span>
+        </div>
+      </div>
+      {!compact && <div className="shopvibe-ribbon">SHOPVIBE SYSTEM</div>}
+    </div>
+  );
+}
+
+export const Flip7Logo = ShopVibeLogo;
+
 export function PageHeader({
   title,
   description,
@@ -130,9 +155,9 @@ export function PageHeader({
   action?: ReactNode;
 }) {
   return (
-    <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+    <div className="mb-6 flex flex-wrap items-end justify-between gap-3 border-b border-border pb-4">
       <div>
-        <h1 className="text-2xl font-semibold">{title}</h1>
+        <h1 className="text-3xl font-extrabold tracking-tight text-primary">{title}</h1>
         {description && <p className="mt-1 text-sm text-muted-foreground">{description}</p>}
       </div>
       {action}

@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Boxes, ClipboardCheck, GitBranch, Package, Search, ShieldCheck } from "lucide-react";
+import { ShopVibeLogo } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 import { useSession } from "@/hooks/useAuth";
 
@@ -23,12 +24,36 @@ export const Route = createFileRoute("/")({
 });
 
 const FEATURES = [
-  { icon: Boxes, title: "ข้อมูลลูกค้าและสินค้า", desc: "จัดเก็บลูกค้า สินค้า และรหัส SKU ไว้ที่เดียว" },
-  { icon: Package, title: "รูปแบบการบรรจุครบถ้วน", desc: "จำนวนต่อแพ็ก น้ำหนัก ขนาด วัสดุ ฉลาก บาร์โค้ด" },
-  { icon: ClipboardCheck, title: "ขั้นตอนการอนุมัติ", desc: "ฉบับร่าง รออนุมัติ อนุมัติ ไม่อนุมัติ จัดเก็บ" },
-  { icon: GitBranch, title: "ควบคุมเวอร์ชัน", desc: "ข้อมูลที่อนุมัติแล้วแก้ไขไม่ได้ ต้องสร้างเวอร์ชันใหม่" },
-  { icon: Search, title: "ค้นหาและกรองรวดเร็ว", desc: "กรองตามลูกค้า สถานะ ประเภทบรรจุภัณฑ์ และวันที่" },
-  { icon: ShieldCheck, title: "สิทธิ์ตามบทบาท", desc: "แยกสิทธิ์ฝ่ายขาย ผลิตภัณฑ์ QC ผลิต คลัง และผู้อนุมัติ" },
+  {
+    icon: Boxes,
+    title: "ข้อมูลลูกค้าและสินค้า",
+    desc: "จัดเก็บลูกค้า สินค้า และรหัส SKU ไว้ที่เดียว",
+  },
+  {
+    icon: Package,
+    title: "รูปแบบการบรรจุครบถ้วน",
+    desc: "จำนวนต่อแพ็ก น้ำหนัก ขนาด วัสดุ ฉลาก บาร์โค้ด",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "ขั้นตอนการอนุมัติ",
+    desc: "ฉบับร่าง รออนุมัติ อนุมัติ ไม่อนุมัติ จัดเก็บ",
+  },
+  {
+    icon: GitBranch,
+    title: "ควบคุมเวอร์ชัน",
+    desc: "ข้อมูลที่อนุมัติแล้วแก้ไขไม่ได้ ต้องสร้างเวอร์ชันใหม่",
+  },
+  {
+    icon: Search,
+    title: "ค้นหาและกรองรวดเร็ว",
+    desc: "กรองตามลูกค้า สถานะ ประเภทบรรจุภัณฑ์ และวันที่",
+  },
+  {
+    icon: ShieldCheck,
+    title: "สิทธิ์ตามบทบาท",
+    desc: "แยกสิทธิ์ฝ่ายขาย ผลิตภัณฑ์ QC ผลิต คลัง และผู้อนุมัติ",
+  },
 ];
 
 function Landing() {
@@ -36,40 +61,57 @@ function Landing() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b bg-surface">
+      <header className="border-b border-border bg-surface/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <span className="text-sm font-semibold">ระบบรูปแบบการบรรจุสินค้า</span>
+          <div className="flex items-center gap-3">
+            <ShopVibeLogo compact />
+            <span className="text-sm font-extrabold tracking-tight text-primary">
+              ระบบรูปแบบการบรรจุสินค้า
+            </span>
+          </div>
           <Button asChild size="sm">
-            <Link to={user ? "/dashboard" : "/auth"}>{user ? "เข้าสู่ระบบงาน" : "เข้าสู่ระบบ"}</Link>
+            <Link to={user ? "/dashboard" : "/auth"}>
+              {user ? "เข้าสู่ระบบงาน" : "เข้าสู่ระบบ"}
+            </Link>
           </Button>
         </div>
       </header>
 
-      <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <p className="text-sm font-medium text-primary">Packaging Format Management</p>
-        <h1 className="mt-3 max-w-3xl text-3xl font-semibold leading-snug md:text-5xl">
-          รูปแบบผลิตภัณฑ์ของการบรรจุสินค้า มาตรฐานเดียวกันทั้งองค์กร
-        </h1>
-        <p className="mt-5 max-w-2xl text-base text-muted-foreground md:text-lg">
-          เลิกตามหาข้อมูลจาก Excel แชต และอีเมล รวมทุกรูปแบบการบรรจุของลูกค้าไว้ที่เดียว
-          พร้อมไฟล์แนบ ประวัติการแก้ไข และการอนุมัติที่ตรวจสอบย้อนหลังได้
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button asChild size="lg">
-            <Link to={user ? "/dashboard" : "/auth"}>เริ่มใช้งาน</Link>
-          </Button>
-          <Button asChild size="lg" variant="outline">
-            <Link to="/packaging">ดูรูปแบบการบรรจุ</Link>
-          </Button>
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-[0.9fr_1.1fr] md:py-24">
+        <ShopVibeLogo />
+        <div>
+          <p className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-extrabold tracking-[0.24em] text-accent-foreground shadow-[0_8px_24px_rgb(250_204_21_/_0.25)]">
+            Packaging Format Management
+          </p>
+          <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-snug tracking-tight text-primary md:text-6xl">
+            รูปแบบผลิตภัณฑ์ของการบรรจุสินค้า มาตรฐานเดียวกันทั้งองค์กร
+          </h1>
+          <p className="mt-5 max-w-2xl text-base font-medium text-muted-foreground md:text-lg">
+            เลิกตามหาข้อมูลจาก Excel แชต และอีเมล รวมทุกรูปแบบการบรรจุของลูกค้าไว้ที่เดียว
+            พร้อมไฟล์แนบ ประวัติการแก้ไข และการอนุมัติที่ตรวจสอบย้อนหลังได้
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button asChild size="lg">
+              <Link to={user ? "/dashboard" : "/auth"}>เริ่มใช้งาน</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link to="/packaging">ดูรูปแบบการบรรจุ</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
-      <section className="border-t bg-surface">
+      <section className="border-t border-border bg-surface/70">
         <div className="mx-auto grid max-w-6xl gap-6 px-6 py-16 md:grid-cols-3">
           {FEATURES.map((f) => (
-            <div key={f.title} className="rounded-lg border p-5">
-              <f.icon className="size-6 text-primary" />
-              <h2 className="mt-4 text-base font-semibold">{f.title}</h2>
+            <div
+              key={f.title}
+              className="shopvibe-card-accent rounded-2xl border bg-card p-6 shadow-[0_12px_32px_rgb(23_23_23_/_0.08),0_4px_16px_rgb(217_70_239_/_0.08)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgb(217_70_239_/_0.16)]"
+            >
+              <div className="inline-flex rounded-2xl bg-secondary p-3 text-secondary-foreground shadow-[0_8px_28px_rgb(34_211_238_/_0.22)]">
+                <f.icon className="size-6" />
+              </div>
+              <h2 className="mt-4 text-lg font-extrabold tracking-tight text-primary">{f.title}</h2>
               <p className="mt-1 text-sm text-muted-foreground">{f.desc}</p>
             </div>
           ))}
