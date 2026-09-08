@@ -1,0 +1,3 @@
+CREATE POLICY "attachments_read" ON storage.objects FOR SELECT TO authenticated USING (bucket_id = 'attachments');
+CREATE POLICY "attachments_insert" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id = 'attachments' AND public.has_any_role(auth.uid(), ARRAY['admin','sales','product']::public.app_role[]));
+CREATE POLICY "attachments_delete" ON storage.objects FOR DELETE TO authenticated USING (bucket_id = 'attachments' AND public.has_any_role(auth.uid(), ARRAY['admin','sales','product']::public.app_role[]));
