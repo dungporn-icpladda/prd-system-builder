@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-[0_8px_28px_rgb(217_70_239_/_0.22)] hover:bg-[#c026d3] hover:shadow-[0_12px_34px_rgb(217_70_239_/_0.28)]",
+          "bg-primary text-primary-foreground shadow-[0_14px_32px_rgb(120_53_15_/_0.22)] hover:bg-[#431407] hover:shadow-[0_18px_40px_rgb(120_53_15_/_0.28)]",
         destructive:
           "bg-destructive text-destructive-foreground shadow-[0_8px_24px_rgb(239_68_68_/_0.2)] hover:bg-[#dc2626]",
         outline:
-          "border-2 border-primary/40 bg-surface text-primary shadow-[0_8px_24px_rgb(217_70_239_/_0.08)] hover:border-primary hover:bg-[#fdf4ff] hover:text-primary",
+          "border-2 border-primary/20 bg-surface text-primary shadow-[0_10px_24px_rgb(120_53_15_/_0.08)] hover:border-primary/50 hover:bg-muted hover:text-primary",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-[0_8px_28px_rgb(34_211_238_/_0.22)] hover:bg-[#06b6d4]",
+          "bg-secondary text-secondary-foreground shadow-[0_10px_24px_rgb(251_146_60_/_0.16)] hover:bg-[#fdba74]",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },

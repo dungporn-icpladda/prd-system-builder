@@ -1,7 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { ShopVibeLogo } from "@/components/AppShell";
 import { localStorageCredentials, supabase } from "@/integrations/supabase/client";
 import { useSession } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -24,7 +23,7 @@ export const Route = createFileRoute("/auth")({
   component: AuthPage,
 });
 
-function AuthPage() {
+export function AuthPage() {
   const navigate = useNavigate();
   const { user, loading } = useSession();
   const [email, setEmail] = useState("");
@@ -89,9 +88,8 @@ function AuthPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4 py-10">
-      <div className="w-full max-w-md panel p-8 shadow-[0_18px_42px_rgb(217_70_239_/_0.16),0_8px_28px_rgb(34_211_238_/_0.12)]">
+      <div className="w-full max-w-md panel p-8 shadow-[0_22px_55px_rgb(120_53_15_/_0.12),0_2px_10px_rgb(120_53_15_/_0.04)]">
         <div className="mb-8 flex flex-col items-center gap-4 text-center">
-          <ShopVibeLogo />
           <div>
             <h1 className="text-xl font-extrabold tracking-tight text-primary">
               ระบบรูปแบบการบรรจุสินค้า

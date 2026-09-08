@@ -45,51 +45,51 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --shadow-panel: 0 10px 30px rgb(23 23 23 / 0.08), 0 4px 14px rgb(217 70 239 / 0.08);
+  --shadow-panel: 0 18px 45px rgb(120 53 15 / 0.1), 0 2px 10px rgb(120 53 15 / 0.05);
 }
 
 :root {
   --radius: 1rem;
-  --background: #f3f4f6;
-  --foreground: #171717;
-  --surface: #ffffff;
-  --card: #ffffff;
-  --card-foreground: #171717;
-  --popover: #ffffff;
-  --popover-foreground: #171717;
-  --primary: #d946ef;
+  --background: #f7efe3;
+  --foreground: #3b2415;
+  --surface: #fffaf2;
+  --card: #fffaf2;
+  --card-foreground: #3b2415;
+  --popover: #fffaf2;
+  --popover-foreground: #3b2415;
+  --primary: #7c2d12;
   --primary-foreground: #ffffff;
-  --secondary: #22d3ee;
-  --secondary-foreground: #083344;
-  --muted: #f5f5f5;
-  --muted-foreground: #737373;
-  --accent: #facc15;
-  --accent-foreground: #422006;
+  --secondary: #fed7aa;
+  --secondary-foreground: #431407;
+  --muted: #f3e7d6;
+  --muted-foreground: #8a6046;
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --success: #22c55e;
   --success-foreground: #ffffff;
   --warning: #f59e0b;
   --warning-foreground: #422006;
-  --border: #e5e5e5;
-  --input: #d4d4d4;
-  --ring: #d946ef;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #171717;
-  --sidebar-primary: #d946ef;
+  --border: #ead7bf;
+  --input: #d7bfa5;
+  --ring: #f97316;
+  --sidebar: #fffaf2;
+  --sidebar-foreground: #3b2415;
+  --sidebar-primary: #7c2d12;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #fdf4ff;
-  --sidebar-accent-foreground: #a21caf;
-  --sidebar-border: #f5d0fe;
-  --sidebar-ring: #d946ef;
-  --shopvibe-cyan: #22d3ee;
-  --shopvibe-yellow: #facc15;
-  --shopvibe-pink-light: #f5d0fe;
-  --shopvibe-ink: #171717;
-  --shadow-card: 0 12px 32px rgb(23 23 23 / 0.08), 0 4px 16px rgb(217 70 239 / 0.08);
-  --shadow-pink-glow: 0 8px 28px rgb(217 70 239 / 0.22);
-  --shadow-cyan-glow: 0 8px 28px rgb(34 211 238 / 0.22);
-  --shadow-yellow-glow: 0 8px 24px rgb(250 204 21 / 0.25);
+  --sidebar-accent: #ffedd5;
+  --sidebar-accent-foreground: #7c2d12;
+  --sidebar-border: #ead7bf;
+  --sidebar-ring: #f97316;
+  --shopvibe-cyan: #fb923c;
+  --shopvibe-yellow: #fed7aa;
+  --shopvibe-pink-light: #ffedd5;
+  --shopvibe-ink: #3b2415;
+  --shadow-card: 0 18px 45px rgb(120 53 15 / 0.1), 0 2px 10px rgb(120 53 15 / 0.05);
+  --shadow-pink-glow: 0 18px 45px rgb(249 115 22 / 0.18);
+  --shadow-cyan-glow: 0 12px 30px rgb(251 146 60 / 0.18);
+  --shadow-yellow-glow: 0 10px 24px rgb(254 215 170 / 0.35);
 }
 
 .dark {
@@ -103,9 +103,9 @@
 
   body {
     background:
-      radial-gradient(circle at 78% 8%, rgb(217 70 239 / 0.12), transparent 24rem),
-      radial-gradient(circle at 8% 88%, rgb(34 211 238 / 0.12), transparent 26rem),
-      linear-gradient(135deg, #f3f4f6 0%, #f8fafc 48%, #f1f5f9 100%), var(--color-background);
+      radial-gradient(circle at 78% 8%, rgb(249 115 22 / 0.14), transparent 24rem),
+      radial-gradient(circle at 8% 88%, rgb(120 53 15 / 0.1), transparent 26rem),
+      linear-gradient(135deg, #f7efe3 0%, #fff7ed 48%, #fed7aa 100%), var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;

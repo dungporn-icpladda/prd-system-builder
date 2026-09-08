@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Boxes, ClipboardCheck, GitBranch, Package, Search, ShieldCheck } from "lucide-react";
-import { ShopVibeLogo } from "@/components/AppShell";
 import { Button } from "@/components/ui/button";
 import { useSession } from "@/hooks/useAuth";
 
@@ -64,13 +63,12 @@ function Landing() {
       <header className="border-b border-border bg-surface/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <ShopVibeLogo compact />
             <span className="text-sm font-extrabold tracking-tight text-primary">
               ระบบรูปแบบการบรรจุสินค้า
             </span>
           </div>
           <Button asChild size="sm">
-            <Link to={user ? "/dashboard" : "/auth"}>
+            <Link to={user ? "/dashboard" : "/login"}>
               {user ? "เข้าสู่ระบบงาน" : "เข้าสู่ระบบ"}
             </Link>
           </Button>
@@ -78,9 +76,8 @@ function Landing() {
       </header>
 
       <section className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 md:grid-cols-[0.9fr_1.1fr] md:py-24">
-        <ShopVibeLogo />
         <div>
-          <p className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-extrabold tracking-[0.24em] text-accent-foreground shadow-[0_8px_24px_rgb(250_204_21_/_0.25)]">
+          <p className="inline-flex rounded-full bg-accent px-4 py-2 text-sm font-extrabold tracking-[0.24em] text-accent-foreground shadow-[0_10px_24px_rgb(251_146_60_/_0.12)]">
             Packaging Format Management
           </p>
           <h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-snug tracking-tight text-primary md:text-6xl">
@@ -92,7 +89,7 @@ function Landing() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild size="lg">
-              <Link to={user ? "/dashboard" : "/auth"}>เริ่มใช้งาน</Link>
+              <Link to={user ? "/dashboard" : "/login"}>เริ่มใช้งาน</Link>
             </Button>
             <Button asChild size="lg" variant="outline">
               <Link to="/packaging">ดูรูปแบบการบรรจุ</Link>
@@ -106,9 +103,9 @@ function Landing() {
           {FEATURES.map((f) => (
             <div
               key={f.title}
-              className="shopvibe-card-accent rounded-2xl border bg-card p-6 shadow-[0_12px_32px_rgb(23_23_23_/_0.08),0_4px_16px_rgb(217_70_239_/_0.08)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_18px_42px_rgb(217_70_239_/_0.16)]"
+              className="shopvibe-card-accent rounded-2xl border bg-card p-6 shadow-[0_18px_45px_rgb(120_53_15_/_0.08),0_2px_10px_rgb(120_53_15_/_0.04)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_22px_55px_rgb(120_53_15_/_0.12)]"
             >
-              <div className="inline-flex rounded-2xl bg-secondary p-3 text-secondary-foreground shadow-[0_8px_28px_rgb(34_211_238_/_0.22)]">
+              <div className="inline-flex rounded-2xl bg-secondary p-3 text-secondary-foreground shadow-[0_10px_24px_rgb(251_146_60_/_0.12)]">
                 <f.icon className="size-6" />
               </div>
               <h2 className="mt-4 text-lg font-extrabold tracking-tight text-primary">{f.title}</h2>

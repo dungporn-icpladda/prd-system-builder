@@ -45,19 +45,19 @@ export function AppShell({ children }: { children: ReactNode }) {
     await queryClient.cancelQueries();
     queryClient.clear();
     await supabase.auth.signOut();
-    navigate({ to: "/auth", replace: true });
+    navigate({ to: "/login", replace: true });
   }
 
   return (
     <div className="flex min-h-screen bg-background text-foreground">
       <aside
         className={cn(
-          "fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground shadow-[18px_0_40px_rgb(217_70_239_/_0.08)] transition-transform lg:static lg:translate-x-0",
+          "fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-sidebar-border bg-sidebar text-sidebar-foreground shadow-[18px_0_40px_rgb(120_53_15_/_0.1)] transition-transform lg:static lg:translate-x-0",
           open ? "translate-x-0" : "-translate-x-full",
         )}
       >
         <div className="flex items-center gap-3 border-b border-sidebar-border px-5 py-4">
-          <div className="rounded-2xl bg-sidebar-primary p-2 text-sidebar-primary-foreground shadow-[0_8px_28px_rgb(217_70_239_/_0.22)]">
+          <div className="rounded-2xl bg-sidebar-primary p-2 text-sidebar-primary-foreground shadow-[0_14px_32px_rgb(120_53_15_/_0.2)]">
             <Factory className="size-5" />
           </div>
           <div className="leading-tight">
@@ -78,8 +78,8 @@ export function AppShell({ children }: { children: ReactNode }) {
                 className={cn(
                   "flex min-h-11 items-center gap-3 rounded-full px-3 py-2 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5",
                   active
-                    ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-[0_8px_28px_rgb(217_70_239_/_0.22)]"
-                    : "text-sidebar-foreground/85 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_8px_24px_rgb(217_70_239_/_0.1)]",
+                    ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-[0_14px_32px_rgb(120_53_15_/_0.2)]"
+                    : "text-sidebar-foreground/85 hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_10px_24px_rgb(120_53_15_/_0.1)]",
                 )}
               >
                 <item.icon className="size-4" />
